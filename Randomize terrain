@@ -1,0 +1,104 @@
+package experimental;
+
+import java.awt.*;
+
+public class RandomizeLevels extends java.applet.Applet
+{
+	//General setup
+	int width = 640, height = 640;
+	Font fnt12P = new Font("Helvetica", Font.PLAIN, 12);
+	Label[][] terrain = new Label[64][64];
+	
+	//Room 1 variables
+	int room1Width = (int)(20 * Math.random() + 2);
+	int room1Height = (int)(20 * Math.random() + 2);
+	int room1CornerX = (int)((21 - room1Width) * Math.random() + 1);
+	int room1CornerY = (int)((21 - room1Height) * Math.random() + 1);
+	
+	//Room 2 variables
+	int room2Width = 20; //(int)(20 * Math.random() + 2);
+	int room2Height = 20; //(int)(20 * Math.random() + 2);
+	int room2CornerX = (int)((42 - room2Width) * Math.random() + 22);
+	int room2CornerY = (int)((21 - room2Height) * Math.random() + 1);
+	
+	//Room 3 variables
+	int room3Width = 20; //(int)(20 * Math.random() + 2);
+	int room3Height = 20; //(int)(20 * Math.random() + 2);
+	int room3CornerX = (int)((63 - room3Width) * Math.random() + 43);
+	int room3CornerY = (int)((21 - room3Height) * Math.random() + 1);
+	
+	//Room 4 variables
+	int room4Width = 20; //(int)(20 * Math.random() + 2);
+	int room4Height = 20; //(int)(20 * Math.random() + 2);
+	int room4CornerX = (int)((21 - room4Width) * Math.random() + 1);
+	int room4CornerY = (int)((42 - room4Height) * Math.random() + 22);
+	
+	//Room 5 variables
+	int room5Width = 20; //(int)(20 * Math.random() + 2);
+	int room5Height = 20; //(int)(20 * Math.random() + 2);
+	int room5CornerX = (int)((42 - room5Width) * Math.random() + 22);
+	int room5CornerY = (int)((42 - room5Height) * Math.random() + 22);
+	
+	//Room 6 variables
+	int room6Width = 20; //(int)(20 * Math.random() + 2);
+	int room6Height = 20; //(int)(20 * Math.random() + 2);
+	int room6CornerX = (int)((63 - room6Width) * Math.random() + 43);
+	int room6CornerY = (int)((42 - room6Height) * Math.random() + 22);
+	
+	//Room 7 variables
+	int room7Width = (int)(20 * Math.random() + 2);
+	int room7Height = (int)(20 * Math.random() + 2);
+	int room7CornerX = (int)((21 - room7Width) * Math.random() + 1);
+	int room7CornerY = (int)((63 - room7Height) * Math.random() + 43);
+	
+	//Room 8 variables
+	int room8Width = (int)(20 * Math.random() + 2);
+	int room8Height = (int)(20 * Math.random() + 2);
+	int room8CornerX = (int)((42 - room8Width) * Math.random() + 22);
+	int room8CornerY = (int)((63 - room8Height) * Math.random() + 43);
+	
+	//Room 9 variables
+	int room9Width = (int)(20 * Math.random() + 2);
+	int room9Height = (int)(20 * Math.random() + 2);
+	int room9CornerX = (int)((63 - room9Width) * Math.random() + 43);
+	int room9CornerY = (int)((63 - room9Height) * Math.random() + 43);
+	
+	public void init()
+	{
+		//General setup
+		setSize(width, height);
+		setLayout(null);
+		setBackground(Color.white);
+		
+		//Make all tiles visible
+		for (int x = 0; x < 64; x++)
+		{
+			for (int y = 0; y < 64; y++)
+			{
+				terrain[x][y] = new Label("*");
+				terrain[x][y].setSize(10, 10);
+				terrain[x][y].setLocation(10*x, 10*y);
+				terrain[x][y].setFont(fnt12P);
+				terrain[x][y].setForeground(Color.black);
+				terrain[x][y].setVisible(true);
+				add(terrain[x][y]);
+			}
+		}
+		
+		//Carve out rooms
+		for (int i = 0; i < room1Width; i++) { for (int j = 0; j < room1Height; j++) { terrain[room1CornerX + i][room1CornerY + j].setVisible(false); } }
+		//for (int i = 0; i < room2Width; i++) { for (int j = 0; j < room2Height; j++) { terrain[room2CornerX + i][room2CornerY + j].setVisible(false); } }
+		//for (int i = 0; i < room3Width; i++) { for (int j = 0; j < room3Height; j++) { terrain[room3CornerX + i][room3CornerY + j].setVisible(false); } }
+		//for (int i = 0; i < room4Width; i++) { for (int j = 0; j < room4Height; j++) { terrain[room4CornerX + i][room4CornerY + j].setVisible(false); } }
+		//for (int i = 0; i < room5Width; i++) { for (int j = 0; j < room5Height; j++) { terrain[room5CornerX + i][room5CornerY + j].setVisible(false); } }
+		//for (int i = 0; i < room6Width; i++) { for (int j = 0; j < room6Height; j++) { terrain[room6CornerX + i][room6CornerY + j].setVisible(false); } }
+		//for (int i = 0; i < room7Width; i++) { for (int j = 0; j < room7Height; j++) { terrain[room7CornerX + i][room7CornerY + j].setVisible(false); } }
+		//for (int i = 0; i < room8Width; i++) { for (int j = 0; j < room8Height; j++) { terrain[room8CornerX + i][room8CornerY + j].setVisible(false); } }
+		//for (int i = 0; i < room9Width; i++) { for (int j = 0; j < room9Height; j++) { terrain[room9CornerX + i][room9CornerY + j].setVisible(false); } }	
+	}
+	
+	public void paint(Graphics g)
+	{
+		
+	}
+}
