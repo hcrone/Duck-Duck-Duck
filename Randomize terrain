@@ -6,95 +6,269 @@ public class RandomizeLevels extends java.applet.Applet
 {
 	//General setup
 	int width = 640, height = 640;
-	Font fnt12P = new Font("Helvetica", Font.PLAIN, 12);
+	Font fnt10P = new Font("Helvetica", Font.PLAIN, 10);
 	Label[][] terrain = new Label[64][64];
 	
+	//Which rooms show up
+	int roomQuantity = 3;
+	int roomA = (int)(9 * Math.random() + 1);
+	int roomB = (int)(9 * Math.random() + 1);
+	int roomC = (int)(9 * Math.random() + 1);
+	int roomD = (int)(9 * Math.random() + 1);
+	int roomE = (int)(9 * Math.random() + 1);
+	
 	//Room 1 variables
-	int room1Width = (int)(20 * Math.random() + 2);
-	int room1Height = (int)(20 * Math.random() + 2);
+	int room1Width = (int)(17 * Math.random() + 5);
+	int room1Height = (int)(17 * Math.random() + 5);
 	int room1CornerX = (int)((21 - room1Width) * Math.random() + 1);
 	int room1CornerY = (int)((21 - room1Height) * Math.random() + 1);
 	
 	//Room 2 variables
-	int room2Width = 20; //(int)(20 * Math.random() + 2);
-	int room2Height = 20; //(int)(20 * Math.random() + 2);
-	int room2CornerX = (int)((42 - room2Width) * Math.random() + 22);
+	int room2Width = (int)(17 * Math.random() + 5);
+	int room2Height = (int)(17 * Math.random() + 5);
+	int room2CornerX = (int)((21 - room2Width) * Math.random() + 22);
 	int room2CornerY = (int)((21 - room2Height) * Math.random() + 1);
 	
 	//Room 3 variables
-	int room3Width = 20; //(int)(20 * Math.random() + 2);
-	int room3Height = 20; //(int)(20 * Math.random() + 2);
-	int room3CornerX = (int)((63 - room3Width) * Math.random() + 43);
+	int room3Width = (int)(17 * Math.random() + 5);
+	int room3Height = (int)(17 * Math.random() + 5);
+	int room3CornerX = (int)((21 - room3Width) * Math.random() + 43);
 	int room3CornerY = (int)((21 - room3Height) * Math.random() + 1);
 	
 	//Room 4 variables
-	int room4Width = 20; //(int)(20 * Math.random() + 2);
-	int room4Height = 20; //(int)(20 * Math.random() + 2);
+	int room4Width = (int)(17 * Math.random() + 5);
+	int room4Height = (int)(17 * Math.random() + 5);
 	int room4CornerX = (int)((21 - room4Width) * Math.random() + 1);
-	int room4CornerY = (int)((42 - room4Height) * Math.random() + 22);
+	int room4CornerY = (int)((21 - room4Height) * Math.random() + 22);
 	
 	//Room 5 variables
-	int room5Width = 20; //(int)(20 * Math.random() + 2);
-	int room5Height = 20; //(int)(20 * Math.random() + 2);
-	int room5CornerX = (int)((42 - room5Width) * Math.random() + 22);
-	int room5CornerY = (int)((42 - room5Height) * Math.random() + 22);
+	int room5Width = (int)(17 * Math.random() + 5);
+	int room5Height = (int)(17 * Math.random() + 5);
+	int room5CornerX = (int)((21 - room5Width) * Math.random() + 22);
+	int room5CornerY = (int)((21 - room5Height) * Math.random() + 22);
 	
 	//Room 6 variables
-	int room6Width = 20; //(int)(20 * Math.random() + 2);
-	int room6Height = 20; //(int)(20 * Math.random() + 2);
-	int room6CornerX = (int)((63 - room6Width) * Math.random() + 43);
-	int room6CornerY = (int)((42 - room6Height) * Math.random() + 22);
+	int room6Width = (int)(17 * Math.random() + 5);
+	int room6Height = (int)(17 * Math.random() + 5);
+	int room6CornerX = (int)((21 - room6Width) * Math.random() + 43);
+	int room6CornerY = (int)((21 - room6Height) * Math.random() + 22);
 	
 	//Room 7 variables
-	int room7Width = (int)(20 * Math.random() + 2);
-	int room7Height = (int)(20 * Math.random() + 2);
+	int room7Width = (int)(17 * Math.random() + 5);
+	int room7Height = (int)(17 * Math.random() + 5);
 	int room7CornerX = (int)((21 - room7Width) * Math.random() + 1);
-	int room7CornerY = (int)((63 - room7Height) * Math.random() + 43);
+	int room7CornerY = (int)((21 - room7Height) * Math.random() + 43);
 	
 	//Room 8 variables
-	int room8Width = (int)(20 * Math.random() + 2);
-	int room8Height = (int)(20 * Math.random() + 2);
-	int room8CornerX = (int)((42 - room8Width) * Math.random() + 22);
-	int room8CornerY = (int)((63 - room8Height) * Math.random() + 43);
+	int room8Width = (int)(17 * Math.random() + 5);
+	int room8Height = (int)(17 * Math.random() + 5);
+	int room8CornerX = (int)((21 - room8Width) * Math.random() + 22);
+	int room8CornerY = (int)((21 - room8Height) * Math.random() + 43);
 	
 	//Room 9 variables
-	int room9Width = (int)(20 * Math.random() + 2);
-	int room9Height = (int)(20 * Math.random() + 2);
-	int room9CornerX = (int)((63 - room9Width) * Math.random() + 43);
-	int room9CornerY = (int)((63 - room9Height) * Math.random() + 43);
+	int room9Width = (int)(17 * Math.random() + 5);
+	int room9Height = (int)(17 * Math.random() + 5);
+	int room9CornerX = (int)((21 - room9Width) * Math.random() + 43);
+	int room9CornerY = (int)((21 - room9Height) * Math.random() + 43);
 	
 	public void init()
 	{
 		//General setup
 		setSize(width, height);
 		setLayout(null);
-		setBackground(Color.white);
+		setBackground(Color.black);
 		
-		//Make all tiles visible
+		//Tile setup
 		for (int x = 0; x < 64; x++)
 		{
 			for (int y = 0; y < 64; y++)
 			{
 				terrain[x][y] = new Label("*");
 				terrain[x][y].setSize(10, 10);
-				terrain[x][y].setLocation(10*x, 10*y);
-				terrain[x][y].setFont(fnt12P);
-				terrain[x][y].setForeground(Color.black);
+				terrain[x][y].setLocation(10 * x, 10 * y);
+				terrain[x][y].setFont(fnt10P);
+				terrain[x][y].setForeground(Color.white);
 				terrain[x][y].setVisible(true);
-				add(terrain[x][y]);
 			}
 		}
 		
-		//Carve out rooms
-		for (int i = 0; i < room1Width; i++) { for (int j = 0; j < room1Height; j++) { terrain[room1CornerX + i][room1CornerY + j].setVisible(false); } }
-		//for (int i = 0; i < room2Width; i++) { for (int j = 0; j < room2Height; j++) { terrain[room2CornerX + i][room2CornerY + j].setVisible(false); } }
-		//for (int i = 0; i < room3Width; i++) { for (int j = 0; j < room3Height; j++) { terrain[room3CornerX + i][room3CornerY + j].setVisible(false); } }
-		//for (int i = 0; i < room4Width; i++) { for (int j = 0; j < room4Height; j++) { terrain[room4CornerX + i][room4CornerY + j].setVisible(false); } }
-		//for (int i = 0; i < room5Width; i++) { for (int j = 0; j < room5Height; j++) { terrain[room5CornerX + i][room5CornerY + j].setVisible(false); } }
-		//for (int i = 0; i < room6Width; i++) { for (int j = 0; j < room6Height; j++) { terrain[room6CornerX + i][room6CornerY + j].setVisible(false); } }
-		//for (int i = 0; i < room7Width; i++) { for (int j = 0; j < room7Height; j++) { terrain[room7CornerX + i][room7CornerY + j].setVisible(false); } }
-		//for (int i = 0; i < room8Width; i++) { for (int j = 0; j < room8Height; j++) { terrain[room8CornerX + i][room8CornerY + j].setVisible(false); } }
-		//for (int i = 0; i < room9Width; i++) { for (int j = 0; j < room9Height; j++) { terrain[room9CornerX + i][room9CornerY + j].setVisible(false); } }	
+		//Ascertain selected rooms are all different
+		
+		while (roomB == roomA) roomB = (int)(9 * Math.random() + 1);
+		while (roomC == roomA || roomC == roomB) roomC = (int)(9 * Math.random() + 1);
+		while (roomD == roomA || roomD == roomB || roomD == roomC) roomD = (int)(9 * Math.random() + 1);
+		while (roomE == roomA || roomE == roomB || roomE == roomC || roomE == roomD) roomB = (int)(9 * Math.random() + 1);
+		
+		//Make room 1
+		if ((roomQuantity == 2 && (roomA == 1 || roomB == 1)) ||
+			(roomQuantity == 3 && (roomA == 1 || roomB == 1 || roomC == 1)) ||
+			(roomQuantity == 4 && (roomA == 1 || roomB == 1 || roomC == 1 || roomD == 1)) ||
+			(roomQuantity == 5 && (roomA == 1 || roomB == 1 || roomC == 1 || roomD == 1 || roomE == 1)))
+		{
+			for (int i = 0; i < room1Width; i++)
+			{
+				for (int j = 0; j < room1Height; j++)
+				{
+					add(terrain[room1CornerX + i][room1CornerY + j]);
+					terrain[room1CornerX + i][room1CornerY].setText("X");
+					terrain[room1CornerX + i][room1CornerY + room1Height - 1].setText("X");
+					terrain[room1CornerX][room1CornerY + j].setText("X");
+					terrain[room1CornerX + room1Width - 1][room1CornerY + j].setText("X");
+				}
+			}
+		}
+
+		//Make room 2
+		if ((roomQuantity == 2 && (roomA == 2 || roomB == 2)) ||
+			(roomQuantity == 3 && (roomA == 2 || roomB == 2 || roomC == 2)) ||
+			(roomQuantity == 4 && (roomA == 2 || roomB == 2 || roomC == 2 || roomD == 2)) ||
+			(roomQuantity == 5 && (roomA == 2 || roomB == 2 || roomC == 2 || roomD == 2 || roomE == 2)))
+		{
+			for (int i = 0; i < room2Width; i++)
+			{
+				for (int j = 0; j < room2Height; j++)
+				{
+					add(terrain[room2CornerX + i][room2CornerY + j]);
+					terrain[room2CornerX + i][room2CornerY].setText("X");
+					terrain[room2CornerX + i][room2CornerY + room2Height - 1].setText("X");
+					terrain[room2CornerX][room2CornerY + j].setText("X");
+					terrain[room2CornerX + room2Width - 1][room2CornerY + j].setText("X");
+				}
+			}
+		}
+		
+		//Make room 3
+		if ((roomQuantity == 2 && (roomA == 3 || roomB == 3)) ||
+			(roomQuantity == 3 && (roomA == 3 || roomB == 3 || roomC == 3)) ||
+			(roomQuantity == 4 && (roomA == 3 || roomB == 3 || roomC == 3 || roomD == 3)) ||
+			(roomQuantity == 5 && (roomA == 3 || roomB == 3 || roomC == 3 || roomD == 3 || roomE == 3)))
+		{
+			for (int i = 0; i < room3Width; i++)
+			{
+				for (int j = 0; j < room3Height; j++)
+				{
+					add(terrain[room3CornerX + i][room3CornerY + j]);
+					terrain[room3CornerX + i][room3CornerY].setText("X");
+					terrain[room3CornerX + i][room3CornerY + room3Height - 1].setText("X");
+					terrain[room3CornerX][room3CornerY + j].setText("X");
+					terrain[room3CornerX + room3Width - 1][room3CornerY + j].setText("X");
+				}
+			}
+		}
+				
+		//Make room 4
+		if ((roomQuantity == 2 && (roomA == 4 || roomB == 4)) ||
+			(roomQuantity == 3 && (roomA == 4 || roomB == 4 || roomC == 4)) ||
+			(roomQuantity == 4 && (roomA == 4 || roomB == 4 || roomC == 4 || roomD == 4)) ||
+			(roomQuantity == 5 && (roomA == 4 || roomB == 4 || roomC == 4 || roomD == 4 || roomE == 4)))
+		{
+			for (int i = 0; i < room4Width; i++)
+			{
+				for (int j = 0; j < room4Height; j++)
+				{
+					add(terrain[room4CornerX + i][room4CornerY + j]);
+					terrain[room4CornerX + i][room4CornerY].setText("X");
+					terrain[room4CornerX + i][room4CornerY + room4Height - 1].setText("X");
+					terrain[room4CornerX][room4CornerY + j].setText("X");
+					terrain[room4CornerX + room4Width - 1][room4CornerY + j].setText("X");
+				}
+			}
+		}
+		
+		//Make room 5
+		if ((roomQuantity == 2 && (roomA == 5 || roomB == 5)) ||
+			(roomQuantity == 3 && (roomA == 5 || roomB == 5 || roomC == 5)) ||
+			(roomQuantity == 4 && (roomA == 5 || roomB == 5 || roomC == 5 || roomD == 5)) ||
+			(roomQuantity == 5 && (roomA == 5 || roomB == 5 || roomC == 5 || roomD == 5 || roomE == 5)))
+		{
+			for (int i = 0; i < room5Width; i++)
+			{
+				for (int j = 0; j < room5Height; j++)
+				{
+					add(terrain[room5CornerX + i][room5CornerY + j]);
+					terrain[room5CornerX + i][room5CornerY].setText("X");
+					terrain[room5CornerX + i][room5CornerY + room5Height - 1].setText("X");
+					terrain[room5CornerX][room5CornerY + j].setText("X");
+					terrain[room5CornerX + room5Width - 1][room5CornerY + j].setText("X");
+				}
+			}
+		}
+
+		//Make room 6
+		if ((roomQuantity == 2 && (roomA == 6 || roomB == 6)) ||
+			(roomQuantity == 3 && (roomA == 6 || roomB == 6 || roomC == 6)) ||
+			(roomQuantity == 4 && (roomA == 6 || roomB == 6 || roomC == 6 || roomD == 6)) ||
+			(roomQuantity == 5 && (roomA == 6 || roomB == 6 || roomC == 6 || roomD == 6 || roomE == 6)))
+		{
+			for (int i = 0; i < room6Width; i++)
+			{
+				for (int j = 0; j < room6Height; j++)
+				{
+					add(terrain[room6CornerX + i][room6CornerY + j]);
+					terrain[room6CornerX + i][room6CornerY].setText("X");
+					terrain[room6CornerX + i][room6CornerY + room6Height - 1].setText("X");
+					terrain[room6CornerX][room6CornerY + j].setText("X");
+					terrain[room6CornerX + room6Width - 1][room6CornerY + j].setText("X");
+				}
+			}
+		}
+
+		//Make room 7
+		if ((roomQuantity == 2 && (roomA == 7 || roomB == 7)) ||
+			(roomQuantity == 3 && (roomA == 7 || roomB == 7 || roomC == 7)) ||
+			(roomQuantity == 4 && (roomA == 7 || roomB == 7 || roomC == 7 || roomD == 7)) ||
+			(roomQuantity == 5 && (roomA == 7 || roomB == 7 || roomC == 7 || roomD == 7 || roomE == 7)))
+		{
+			for (int i = 0; i < room7Width; i++)
+			{
+				for (int j = 0; j < room7Height; j++)
+				{
+					add(terrain[room7CornerX + i][room7CornerY + j]);
+					terrain[room7CornerX + i][room7CornerY].setText("X");
+					terrain[room7CornerX + i][room7CornerY + room7Height - 1].setText("X");
+					terrain[room7CornerX][room7CornerY + j].setText("X");
+					terrain[room7CornerX + room7Width - 1][room7CornerY + j].setText("X");
+				}
+			}
+		}
+
+		//Make room 8
+		if ((roomQuantity == 2 && (roomA == 8 || roomB == 8)) ||
+			(roomQuantity == 3 && (roomA == 8 || roomB == 8 || roomC == 8)) ||
+			(roomQuantity == 4 && (roomA == 8 || roomB == 8 || roomC == 8 || roomD == 8)) ||
+			(roomQuantity == 5 && (roomA == 8 || roomB == 8 || roomC == 8 || roomD == 8 || roomE == 8)))
+		{
+			for (int i = 0; i < room8Width; i++)
+			{
+				for (int j = 0; j < room8Height; j++)
+				{
+					add(terrain[room8CornerX + i][room8CornerY + j]);
+					terrain[room8CornerX + i][room8CornerY].setText("X");
+					terrain[room8CornerX + i][room8CornerY + room8Height - 1].setText("X");
+					terrain[room8CornerX][room8CornerY + j].setText("X");
+					terrain[room8CornerX + room8Width - 1][room8CornerY + j].setText("X");
+				}
+			}
+		}
+		
+		//Make room 9
+		if ((roomQuantity == 2 && (roomA == 9 || roomB == 9)) ||
+			(roomQuantity == 3 && (roomA == 9 || roomB == 9 || roomC == 9)) ||
+			(roomQuantity == 4 && (roomA == 9 || roomB == 9 || roomC == 9 || roomD == 9)) ||
+			(roomQuantity == 5 && (roomA == 9 || roomB == 9 || roomC == 9 || roomD == 9 || roomE == 9)))
+		{
+			for (int i = 0; i < room9Width; i++)
+			{
+				for (int j = 0; j < room9Height; j++)
+				{
+					add(terrain[room9CornerX + i][room9CornerY + j]);
+					terrain[room9CornerX + i][room9CornerY].setText("X");
+					terrain[room9CornerX + i][room9CornerY + room9Height - 1].setText("X");
+					terrain[room9CornerX][room9CornerY + j].setText("X");
+					terrain[room9CornerX + room9Width - 1][room9CornerY + j].setText("X");
+				}
+			}
+		}	
 	}
 	
 	public void paint(Graphics g)
