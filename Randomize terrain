@@ -10,7 +10,7 @@ public class RandomizeLevels extends java.applet.Applet
 	Label[][] terrain = new Label[64][64];
 	
 	//Which rooms show up
-	int roomQuantity = 3;
+	int roomQuantity = 5; //Right now this can be set by the programmer to either 2, 3, 4, or 5
 	int roomA = (int)(9 * Math.random() + 1);
 	int roomB = (int)(9 * Math.random() + 1);
 	int roomC = (int)(9 * Math.random() + 1);
@@ -93,186 +93,85 @@ public class RandomizeLevels extends java.applet.Applet
 		}
 		
 		//Ascertain selected rooms are all different
-		
 		while (roomB == roomA) roomB = (int)(9 * Math.random() + 1);
 		while (roomC == roomA || roomC == roomB) roomC = (int)(9 * Math.random() + 1);
 		while (roomD == roomA || roomD == roomB || roomD == roomC) roomD = (int)(9 * Math.random() + 1);
 		while (roomE == roomA || roomE == roomB || roomE == roomC || roomE == roomD) roomB = (int)(9 * Math.random() + 1);
-		
-		//Make room 1
-		if ((roomQuantity == 2 && (roomA == 1 || roomB == 1)) ||
-			(roomQuantity == 3 && (roomA == 1 || roomB == 1 || roomC == 1)) ||
-			(roomQuantity == 4 && (roomA == 1 || roomB == 1 || roomC == 1 || roomD == 1)) ||
-			(roomQuantity == 5 && (roomA == 1 || roomB == 1 || roomC == 1 || roomD == 1 || roomE == 1)))
-		{
-			for (int i = 0; i < room1Width; i++)
-			{
-				for (int j = 0; j < room1Height; j++)
-				{
-					add(terrain[room1CornerX + i][room1CornerY + j]);
-					terrain[room1CornerX + i][room1CornerY].setText("X");
-					terrain[room1CornerX + i][room1CornerY + room1Height - 1].setText("X");
-					terrain[room1CornerX][room1CornerY + j].setText("X");
-					terrain[room1CornerX + room1Width - 1][room1CornerY + j].setText("X");
-				}
-			}
-		}
 
-		//Make room 2
-		if ((roomQuantity == 2 && (roomA == 2 || roomB == 2)) ||
-			(roomQuantity == 3 && (roomA == 2 || roomB == 2 || roomC == 2)) ||
-			(roomQuantity == 4 && (roomA == 2 || roomB == 2 || roomC == 2 || roomD == 2)) ||
-			(roomQuantity == 5 && (roomA == 2 || roomB == 2 || roomC == 2 || roomD == 2 || roomE == 2)))
+		//If 2 rooms are to show up
+		if (roomQuantity == 2)
 		{
-			for (int i = 0; i < room2Width; i++)
-			{
-				for (int j = 0; j < room2Height; j++)
-				{
-					add(terrain[room2CornerX + i][room2CornerY + j]);
-					terrain[room2CornerX + i][room2CornerY].setText("X");
-					terrain[room2CornerX + i][room2CornerY + room2Height - 1].setText("X");
-					terrain[room2CornerX][room2CornerY + j].setText("X");
-					terrain[room2CornerX + room2Width - 1][room2CornerY + j].setText("X");
-				}
-			}
+			if (roomA == 1 || roomB == 1) this.edges(room1CornerX, room1CornerY, room1Width, room1Height);
+			if (roomA == 2 || roomB == 2) this.edges(room2CornerX, room2CornerY, room2Width, room2Height);
+			if (roomA == 3 || roomB == 3) this.edges(room3CornerX, room3CornerY, room3Width, room3Height);
+			if (roomA == 4 || roomB == 4) this.edges(room4CornerX, room4CornerY, room4Width, room4Height);
+			if (roomA == 5 || roomB == 5) this.edges(room5CornerX, room5CornerY, room5Width, room5Height);
+			if (roomA == 6 || roomB == 6) this.edges(room6CornerX, room6CornerY, room6Width, room6Height);
+			if (roomA == 7 || roomB == 7) this.edges(room7CornerX, room7CornerY, room7Width, room7Height);
+			if (roomA == 8 || roomB == 8) this.edges(room8CornerX, room8CornerY, room8Width, room8Height);
+			if (roomA == 9 || roomB == 9) this.edges(room9CornerX, room9CornerY, room9Width, room9Height);
 		}
 		
-		//Make room 3
-		if ((roomQuantity == 2 && (roomA == 3 || roomB == 3)) ||
-			(roomQuantity == 3 && (roomA == 3 || roomB == 3 || roomC == 3)) ||
-			(roomQuantity == 4 && (roomA == 3 || roomB == 3 || roomC == 3 || roomD == 3)) ||
-			(roomQuantity == 5 && (roomA == 3 || roomB == 3 || roomC == 3 || roomD == 3 || roomE == 3)))
+		//If 3 rooms are to show up
+		else if (roomQuantity == 3)
 		{
-			for (int i = 0; i < room3Width; i++)
-			{
-				for (int j = 0; j < room3Height; j++)
-				{
-					add(terrain[room3CornerX + i][room3CornerY + j]);
-					terrain[room3CornerX + i][room3CornerY].setText("X");
-					terrain[room3CornerX + i][room3CornerY + room3Height - 1].setText("X");
-					terrain[room3CornerX][room3CornerY + j].setText("X");
-					terrain[room3CornerX + room3Width - 1][room3CornerY + j].setText("X");
-				}
-			}
-		}
-				
-		//Make room 4
-		if ((roomQuantity == 2 && (roomA == 4 || roomB == 4)) ||
-			(roomQuantity == 3 && (roomA == 4 || roomB == 4 || roomC == 4)) ||
-			(roomQuantity == 4 && (roomA == 4 || roomB == 4 || roomC == 4 || roomD == 4)) ||
-			(roomQuantity == 5 && (roomA == 4 || roomB == 4 || roomC == 4 || roomD == 4 || roomE == 4)))
-		{
-			for (int i = 0; i < room4Width; i++)
-			{
-				for (int j = 0; j < room4Height; j++)
-				{
-					add(terrain[room4CornerX + i][room4CornerY + j]);
-					terrain[room4CornerX + i][room4CornerY].setText("X");
-					terrain[room4CornerX + i][room4CornerY + room4Height - 1].setText("X");
-					terrain[room4CornerX][room4CornerY + j].setText("X");
-					terrain[room4CornerX + room4Width - 1][room4CornerY + j].setText("X");
-				}
-			}
+			if (roomA == 1 || roomB == 1 || roomC == 1) this.edges(room1CornerX, room1CornerY, room1Width, room1Height);
+			if (roomA == 2 || roomB == 2 || roomC == 2) this.edges(room2CornerX, room2CornerY, room2Width, room2Height);
+			if (roomA == 3 || roomB == 3 || roomC == 3) this.edges(room3CornerX, room3CornerY, room3Width, room3Height);
+			if (roomA == 4 || roomB == 4 || roomC == 4) this.edges(room4CornerX, room4CornerY, room4Width, room4Height);
+			if (roomA == 5 || roomB == 5 || roomC == 5) this.edges(room5CornerX, room5CornerY, room5Width, room5Height);
+			if (roomA == 6 || roomB == 6 || roomC == 6) this.edges(room6CornerX, room6CornerY, room6Width, room6Height);
+			if (roomA == 7 || roomB == 7 || roomC == 7) this.edges(room7CornerX, room7CornerY, room7Width, room7Height);
+			if (roomA == 8 || roomB == 8 || roomC == 8) this.edges(room8CornerX, room8CornerY, room8Width, room8Height);
+			if (roomA == 9 || roomB == 9 || roomC == 9) this.edges(room9CornerX, room9CornerY, room9Width, room9Height);
 		}
 		
-		//Make room 5
-		if ((roomQuantity == 2 && (roomA == 5 || roomB == 5)) ||
-			(roomQuantity == 3 && (roomA == 5 || roomB == 5 || roomC == 5)) ||
-			(roomQuantity == 4 && (roomA == 5 || roomB == 5 || roomC == 5 || roomD == 5)) ||
-			(roomQuantity == 5 && (roomA == 5 || roomB == 5 || roomC == 5 || roomD == 5 || roomE == 5)))
+		//If 4 rooms are to show up
+		else if (roomQuantity == 4)
 		{
-			for (int i = 0; i < room5Width; i++)
-			{
-				for (int j = 0; j < room5Height; j++)
-				{
-					add(terrain[room5CornerX + i][room5CornerY + j]);
-					terrain[room5CornerX + i][room5CornerY].setText("X");
-					terrain[room5CornerX + i][room5CornerY + room5Height - 1].setText("X");
-					terrain[room5CornerX][room5CornerY + j].setText("X");
-					terrain[room5CornerX + room5Width - 1][room5CornerY + j].setText("X");
-				}
-			}
-		}
-
-		//Make room 6
-		if ((roomQuantity == 2 && (roomA == 6 || roomB == 6)) ||
-			(roomQuantity == 3 && (roomA == 6 || roomB == 6 || roomC == 6)) ||
-			(roomQuantity == 4 && (roomA == 6 || roomB == 6 || roomC == 6 || roomD == 6)) ||
-			(roomQuantity == 5 && (roomA == 6 || roomB == 6 || roomC == 6 || roomD == 6 || roomE == 6)))
-		{
-			for (int i = 0; i < room6Width; i++)
-			{
-				for (int j = 0; j < room6Height; j++)
-				{
-					add(terrain[room6CornerX + i][room6CornerY + j]);
-					terrain[room6CornerX + i][room6CornerY].setText("X");
-					terrain[room6CornerX + i][room6CornerY + room6Height - 1].setText("X");
-					terrain[room6CornerX][room6CornerY + j].setText("X");
-					terrain[room6CornerX + room6Width - 1][room6CornerY + j].setText("X");
-				}
-			}
-		}
-
-		//Make room 7
-		if ((roomQuantity == 2 && (roomA == 7 || roomB == 7)) ||
-			(roomQuantity == 3 && (roomA == 7 || roomB == 7 || roomC == 7)) ||
-			(roomQuantity == 4 && (roomA == 7 || roomB == 7 || roomC == 7 || roomD == 7)) ||
-			(roomQuantity == 5 && (roomA == 7 || roomB == 7 || roomC == 7 || roomD == 7 || roomE == 7)))
-		{
-			for (int i = 0; i < room7Width; i++)
-			{
-				for (int j = 0; j < room7Height; j++)
-				{
-					add(terrain[room7CornerX + i][room7CornerY + j]);
-					terrain[room7CornerX + i][room7CornerY].setText("X");
-					terrain[room7CornerX + i][room7CornerY + room7Height - 1].setText("X");
-					terrain[room7CornerX][room7CornerY + j].setText("X");
-					terrain[room7CornerX + room7Width - 1][room7CornerY + j].setText("X");
-				}
-			}
-		}
-
-		//Make room 8
-		if ((roomQuantity == 2 && (roomA == 8 || roomB == 8)) ||
-			(roomQuantity == 3 && (roomA == 8 || roomB == 8 || roomC == 8)) ||
-			(roomQuantity == 4 && (roomA == 8 || roomB == 8 || roomC == 8 || roomD == 8)) ||
-			(roomQuantity == 5 && (roomA == 8 || roomB == 8 || roomC == 8 || roomD == 8 || roomE == 8)))
-		{
-			for (int i = 0; i < room8Width; i++)
-			{
-				for (int j = 0; j < room8Height; j++)
-				{
-					add(terrain[room8CornerX + i][room8CornerY + j]);
-					terrain[room8CornerX + i][room8CornerY].setText("X");
-					terrain[room8CornerX + i][room8CornerY + room8Height - 1].setText("X");
-					terrain[room8CornerX][room8CornerY + j].setText("X");
-					terrain[room8CornerX + room8Width - 1][room8CornerY + j].setText("X");
-				}
-			}
+			if (roomA == 1 || roomB == 1 || roomC == 1 || roomD == 1) this.edges(room1CornerX, room1CornerY, room1Width, room1Height);
+			if (roomA == 2 || roomB == 2 || roomC == 2 || roomD == 2) this.edges(room2CornerX, room2CornerY, room2Width, room2Height);
+			if (roomA == 3 || roomB == 3 || roomC == 3 || roomD == 3) this.edges(room3CornerX, room3CornerY, room3Width, room3Height);
+			if (roomA == 4 || roomB == 4 || roomC == 4 || roomD == 4) this.edges(room4CornerX, room4CornerY, room4Width, room4Height);
+			if (roomA == 5 || roomB == 5 || roomC == 5 || roomD == 5) this.edges(room5CornerX, room5CornerY, room5Width, room5Height);
+			if (roomA == 6 || roomB == 6 || roomC == 6 || roomD == 6) this.edges(room6CornerX, room6CornerY, room6Width, room6Height);
+			if (roomA == 7 || roomB == 7 || roomC == 7 || roomD == 7) this.edges(room7CornerX, room7CornerY, room7Width, room7Height);
+			if (roomA == 8 || roomB == 8 || roomC == 8 || roomD == 8) this.edges(room8CornerX, room8CornerY, room8Width, room8Height);
+			if (roomA == 9 || roomB == 9 || roomC == 9 || roomD == 9) this.edges(room9CornerX, room9CornerY, room9Width, room9Height);
 		}
 		
-		//Make room 9
-		if ((roomQuantity == 2 && (roomA == 9 || roomB == 9)) ||
-			(roomQuantity == 3 && (roomA == 9 || roomB == 9 || roomC == 9)) ||
-			(roomQuantity == 4 && (roomA == 9 || roomB == 9 || roomC == 9 || roomD == 9)) ||
-			(roomQuantity == 5 && (roomA == 9 || roomB == 9 || roomC == 9 || roomD == 9 || roomE == 9)))
+		//If 5 rooms are to show up
+		else
 		{
-			for (int i = 0; i < room9Width; i++)
-			{
-				for (int j = 0; j < room9Height; j++)
-				{
-					add(terrain[room9CornerX + i][room9CornerY + j]);
-					terrain[room9CornerX + i][room9CornerY].setText("X");
-					terrain[room9CornerX + i][room9CornerY + room9Height - 1].setText("X");
-					terrain[room9CornerX][room9CornerY + j].setText("X");
-					terrain[room9CornerX + room9Width - 1][room9CornerY + j].setText("X");
-				}
-			}
-		}	
+			if (roomA == 1 || roomB == 1 || roomC == 1 || roomD == 1 || roomE == 1) this.edges(room1CornerX, room1CornerY, room1Width, room1Height);
+			if (roomA == 2 || roomB == 2 || roomC == 2 || roomD == 2 || roomE == 2) this.edges(room2CornerX, room2CornerY, room2Width, room2Height);
+			if (roomA == 3 || roomB == 3 || roomC == 3 || roomD == 3 || roomE == 3) this.edges(room3CornerX, room3CornerY, room3Width, room3Height);
+			if (roomA == 4 || roomB == 4 || roomC == 4 || roomD == 4 || roomE == 4) this.edges(room4CornerX, room4CornerY, room4Width, room4Height);
+			if (roomA == 5 || roomB == 5 || roomC == 5 || roomD == 5 || roomE == 5) this.edges(room5CornerX, room5CornerY, room5Width, room5Height);
+			if (roomA == 6 || roomB == 6 || roomC == 6 || roomD == 6 || roomE == 6) this.edges(room6CornerX, room6CornerY, room6Width, room6Height);
+			if (roomA == 7 || roomB == 7 || roomC == 7 || roomD == 7 || roomE == 7) this.edges(room7CornerX, room7CornerY, room7Width, room7Height);
+			if (roomA == 8 || roomB == 8 || roomC == 8 || roomD == 8 || roomE == 8) this.edges(room8CornerX, room8CornerY, room8Width, room8Height);
+			if (roomA == 9 || roomB == 9 || roomC == 9 || roomD == 9 || roomE == 9) this.edges(room9CornerX, room9CornerY, room9Width, room9Height);
+		}
 	}
 	
 	public void paint(Graphics g)
 	{
 		
+	}
+	
+	public void edges(int someCornerX, int someCornerY, int someWidth, int someHeight)
+	{
+		for (int i = 0; i < someWidth; i++)
+		{
+			for (int j = 0; j < someHeight; j++)
+			{
+				add(terrain[someCornerX + i][someCornerY + j]);
+				terrain[someCornerX + i][someCornerY].setText("X");
+				terrain[someCornerX + i][someCornerY + someHeight - 1].setText("X");
+				terrain[someCornerX][someCornerY + j].setText("X");
+				terrain[someCornerX + someWidth - 1][someCornerY + j].setText("X");
+			}
+		}
 	}
 }
